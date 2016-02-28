@@ -1,0 +1,34 @@
+{
+  "name": "ramsey/uuid",
+  "description": "A PHP Library for storing a validating an ISIN (International Securities Identification Number / ISO 6166)",
+  "type": "library",
+  "keywords": ["isin", "iso 6166", "iso6166", "6166"],
+  "homepage": "https://github.com/djmarland/isin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Marland",
+      "email": "davidm@rland.me.uk",
+      "homepage": "http://rland.me.uk"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/djmarland/isin/issues",
+    "source": "https://github.com/djmarland/isin"
+  },
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.7|^5.0",
+    "squizlabs/php_codesniffer": "^2.3"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-4": {"Djmarland\\ISIN\\": "src/ISIN/"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Djmarland\\ISIN\\Test\\": "tests/src/ISIN/"}
+  }
+}
