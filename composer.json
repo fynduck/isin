@@ -1,5 +1,5 @@
 {
-  "name": "ramsey/uuid",
+  "name": "djmarland/isin",
   "description": "A PHP Library for storing a validating an ISIN (International Securities Identification Number / ISO 6166)",
   "type": "library",
   "keywords": ["isin", "iso 6166", "iso6166", "6166"],
