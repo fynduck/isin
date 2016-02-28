@@ -16,29 +16,37 @@ use Djmarland\ISIN;
 $number = 'GB00B3W23161';
 $isin = new ISIN($number);
 ```
+
 If the value passed in was not a valid ISIN it will throw a ```Djmarland\ISIN\Exception\InvalidISINException```
 To get the value back out you can do
+
 ```php
 $value = $isin->getValue();
 // GB00B3W23161
+```
 
 If you want to get hold of just the check digit you can use
+
 ```php
 $digit = $isin->getCheckDigit();
 // 1
 ```
 
 The object has a ```__toString``` so usage in views/routes etc will work:
+
 ```php
 echo 'The ISIN is ' . $isin;
 // The ISIN is GB00B3W23161
+```
 
 ### Validating ISINs
 There are some helper static functions for simple validation.
+
 ```php
 $valid = ISIN::isValid('GB00B3W23161');
 // true
 ```
+
 This will return true if the value was a valid ISIN, false otherwise.
 
 ```php
@@ -48,9 +56,8 @@ $number = ISIN::validate('ABC');
 // InvalidISINException
 ```
 
-This will return the properly formatted ISIN (whitespace trimmed and converted to uppercase). It will throw a
-```Djmarland\ISIN\Exception\InvalidISINException``` if the input was not valid.
-
+This will return the properly formatted ISIN (whitespace trimmed and converted to uppercase).
+It will throw a ```Djmarland\ISIN\Exception\InvalidISINException``` if the input was not valid.
 
 ## Development
 This project is open source. Feedback and pull requests are welcome. To develop the code:
@@ -60,9 +67,15 @@ Checkout the project. Run
 
 ### Running Tests
 PHPUnit
-```vendor/bin/phpunit```
+
+```
+vendor/bin/phpunit
+```
 
 Code Sniffer
-```vendor/bin/phpcs```
+
+```
+vendor/bin/phpcs
+```
 
 Both must be run successfully before code can be submitted. Code coverage must also be 100%.
