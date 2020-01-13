@@ -1,5 +1,5 @@
 # isin
-A PHP Library for storing a validating an ISIN (International Securities Identification Number / ISO 6166).
+A Laravel package for storing a validating an ISIN (International Securities Identification Number / ISO 6166).
 ISINs will be checked against the checksum as detailed at [https://en.wikipedia.org/wiki/International_Securities_Identification_Number]
 
 ## Installation
@@ -20,16 +20,16 @@ $isin = new ISIN($number);
 If the value passed in was not a valid ISIN it will throw a ```fynduck\ISIN\Exception\InvalidISINException```
 To get the value back out you can do
 
-```php
-$value = $isin->getValue();
-// GB00B3W23161
+```
+$isin->getValue();
+return GB00B3W23161
 ```
 
 If you want to get hold of just the check digit you can use
 
-```php
-$digit = $isin->getCheckDigit();
-// 1
+```
+$isin->getCheckDigit();
+return 1
 ```
 
 The object has a ```__toString``` so usage in views/routes etc will work:
