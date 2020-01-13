@@ -1,5 +1,5 @@
 <?php
-namespace Fynduck\ISIN\Test;
+namespace Fynduck\isin\Test;
 
 use Fynduck\ISIN\ISIN;
 use PHPUnit_Framework_TestCase;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fynduck\ISIN;
+namespace Fynduck\isin;
 
 use Fynduck\ISIN\Exception\InvalidISINException;
 
@@ -50,13 +50,15 @@ class Validator
             );
         }
 
-        if (!$this->isCorrectPattern($input)) {
+        if (!$this->isCorrectPattern($input, true)) {
             throw new InvalidISINException(
-                'Input contained invalid characters. Must be A-Z and 0-9 with AAXXXXXXXXX#'
+                'Input contained invalid characters. Must be A-Z and 0-9 with AAXXXXXXXXX'
             );
         }
 
-        return $this->getCheckDigit($input);
+        $characters = $this->generateSum($input);
+
+        return $this->getCheckDigit(implode('', $characters));
     }
 
     private function isCorrectLength($input, $number = 0)
@@ -64,28 +66,34 @@ class Validator
         return strlen($input) == ISIN::VALIDATION_LENGTH - $number;
     }
 
-    private function isCorrectPattern($input)
+    private function isCorrectPattern($input, $generate = false)
     {
-        return preg_match(ISIN::VALIDATION_PATTERN, $input);
+        if ($generate)
+            $response = preg_match(ISIN::VALIDATION_PATTERN_FOR_GENERATE, $input);
+        else
+            $response = preg_match(ISIN::VALIDATION_PATTERN, $input);
+
+        return $response;
     }
 
     private function isCorrectChecksum($input)
     {
-        $characters = str_split($input);
-        // convert all characters to numbers (ints)
-        foreach ($characters as $i => $char) {
-            // cast to int, by using intval at base 36 we also convert letters to numbers
-            $characters[$i] = intval($char, 36);
-        }
+        $characters = $this->generateSum($input);
 
-        // pull out the checkDigit
         $checkDigit = array_pop($characters);
 
-        // put the string back together
-        $number = implode('', $characters);
-        $expectedCheckDigit = $this->getCheckDigit($number);
+        $expectedCheckDigit = $this->getCheckDigit(implode('', $characters));
 
         return ($checkDigit === $expectedCheckDigit);
+    }
+
+    private function generateSum($input)
+    {
+        $characters = str_split($input);
+        foreach ($characters as $i => $char)
+            $characters[$i] = intval($char, 36);
+
+        return $characters;
     }
 
     private function getCheckDigit($input)
@@ -93,7 +101,7 @@ class Validator
         // this method performs the luhn algorithm
         // to obtain a check digit
 
-        $input = (string) $input;
+        $input = (string)$input;
 
         // first split up the string
         $numbers = str_split($input);
@@ -104,10 +112,10 @@ class Validator
         $p = count($numbers) % 2;
         // run through each number
         foreach ($numbers as $i => $num) {
-            $num = (int) $num;
+            $num = (int)$num;
             // every positional number needs to be multiplied by 2
             if ($p % 2) {
-                $num = $num*2;
+                $num = $num * 2;
                 // if the result was more than 9
                 // add the individual digits
                 $num = array_sum(str_split($num));

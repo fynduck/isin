@@ -1,7 +1,7 @@
 <?php
-namespace Fynduck\ISIN\Test;
+namespace Fynduck\isin\Test;
 
-use Fynduck\ISIN\Validator;
+use Fynduck\isin\Validator;
 use PHPUnit_Framework_TestCase;
 
 class ValidatorTest extends PHPUnit_Framework_TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fynduck\ISIN;
+namespace Fynduck\isin;
 
 use Illuminate\Support\ServiceProvider;
 

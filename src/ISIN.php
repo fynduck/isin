@@ -1,13 +1,14 @@
 <?php
 
-namespace Fynduck\ISIN;
+namespace Fynduck\isin;
 
-use Fynduck\ISIN\Exception\InvalidISINException;
+use Fynduck\isin\Exception\InvalidISINException;
 
 class ISIN
 {
     const VALIDATION_LENGTH = 12;
     const VALIDATION_PATTERN = '/[A-Z]{2}[A-Z0-9]{9}[0-9]{1}/';
+    const VALIDATION_PATTERN_FOR_GENERATE = '/[A-Z]{2}[A-Z0-9]{9}/';
 
     /**
      * @var string
