@@ -1,4 +1,8 @@
-# isin
+# Isin
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/fynduck/isin.svg?style=flat-square)](https://packagist.org/packages/fynduck/isin)
+[![Total Downloads](https://img.shields.io/packagist/dt/fynduck/isin.svg?style=flat-square)](https://packagist.org/packages/fynduck/isin)
+
 A Laravel package for storing a validating an ISIN (International Securities Identification Number / ISO 6166).
 ISINs will be checked against the checksum as detailed at [https://en.wikipedia.org/wiki/International_Securities_Identification_Number]
 
