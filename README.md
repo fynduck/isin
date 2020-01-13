@@ -36,13 +36,6 @@ $isin->getCheckDigit();
 return 1
 ```
 
-The object has a ```__toString``` so usage in views/routes etc will work:
-
-```php
-echo 'The ISIN is ' . $isin;
-// The ISIN is GB00B3W23161
-```
-
 ### Generate ISINs
 ```
 ISIN::generateDigit('GB00B3W2316');

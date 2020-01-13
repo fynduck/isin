@@ -42,15 +42,6 @@ class Isin
     }
 
     /**
-     * Return the ISIN value as a string, for echoing
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getValue();
-    }
-
-    /**
      * @param string $input
      * @return bool
      */
