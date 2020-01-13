@@ -30,18 +30,18 @@
   },
   "autoload": {
     "psr-4": {
-      "Fynduck\\ISIN\\": "./src"
+      "Fynduck\\isin\\": "./src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Fynduck\\ISIN\\Test\\": "tests"
+      "Fynduck\\isin\\Test\\": "tests"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Fynduck\\ISIN\\IsinServiceProvider"
+        "Fynduck\\isin\\IsinServiceProvider"
       ]
     }
   }
