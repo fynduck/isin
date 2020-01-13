@@ -1,7 +1,7 @@
 <?php
 namespace Fynduck\isin\Test;
 
-use Fynduck\ISIN\ISIN;
+use Fynduck\isin\Isin;
 use PHPUnit_Framework_TestCase;
 
 class ISINTest extends PHPUnit_Framework_TestCase
@@ -9,7 +9,7 @@ class ISINTest extends PHPUnit_Framework_TestCase
     public function testConstruct()
     {
         $isin = 'AA0000000006';
-        $isinObj = new ISIN($isin);
+        $isinObj = new Isin($isin);
 
         $this->assertSame($isin, $isinObj->getValue());
         $this->assertSame($isin, (string) $isinObj);
@@ -22,16 +22,16 @@ class ISINTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructThrowsInvalid()
     {
-        new ISIN(0);
+        new Isin(0);
     }
 
     public function testValidateReturns()
     {
         $input = 'AA0000000006';
-        $output = ISIN::validate($input);
+        $output = Isin::validate($input);
         $this->assertSame($input, $output);
 
-        $output = ISIN::validate('aa0000000006');
+        $output = Isin::validate('aa0000000006');
         $this->assertSame($input, $output);
     }
 
@@ -41,7 +41,7 @@ class ISINTest extends PHPUnit_Framework_TestCase
      */
     public function testValidateThrows()
     {
-        ISIN::validate(0);
+        Isin::validate(0);
     }
 
     /**
@@ -49,7 +49,7 @@ class ISINTest extends PHPUnit_Framework_TestCase
      */
     public function testIsValid($input, $expected)
     {
-        $this->assertEquals($expected, ISIN::isValid($input));
+        $this->assertEquals($expected, Isin::isValid($input));
     }
 
     public function isValidProvider()

@@ -2,7 +2,7 @@
 
 namespace Fynduck\isin;
 
-use Fynduck\ISIN\Exception\InvalidISINException;
+use Fynduck\isin\Exception\InvalidISINException;
 
 class Validator
 {
@@ -63,15 +63,15 @@ class Validator
 
     private function isCorrectLength($input, $number = 0)
     {
-        return strlen($input) == ISIN::VALIDATION_LENGTH - $number;
+        return strlen($input) == Isin::VALIDATION_LENGTH - $number;
     }
 
     private function isCorrectPattern($input, $generate = false)
     {
         if ($generate)
-            $response = preg_match(ISIN::VALIDATION_PATTERN_FOR_GENERATE, $input);
+            $response = preg_match(Isin::VALIDATION_PATTERN_FOR_GENERATE, $input);
         else
-            $response = preg_match(ISIN::VALIDATION_PATTERN, $input);
+            $response = preg_match(Isin::VALIDATION_PATTERN, $input);
 
         return $response;
     }

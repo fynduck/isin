@@ -4,7 +4,7 @@ namespace Fynduck\isin;
 
 use Fynduck\isin\Exception\InvalidISINException;
 
-class ISIN
+class Isin
 {
     const VALIDATION_LENGTH = 12;
     const VALIDATION_PATTERN = '/[A-Z]{2}[A-Z0-9]{9}[0-9]{1}/';
