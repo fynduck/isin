@@ -1,7 +1,7 @@
 <?php
-namespace Djmarland\ISIN\Test;
+namespace Fynduck\ISIN\Test;
 
-use Djmarland\ISIN\ISIN;
+use Fynduck\ISIN\ISIN;
 use PHPUnit_Framework_TestCase;
 
 class ISINTest extends PHPUnit_Framework_TestCase
@@ -17,7 +17,7 @@ class ISINTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input was not a string
      */
     public function testConstructThrowsInvalid()
@@ -36,7 +36,7 @@ class ISINTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input was not a string
      */
     public function testValidateThrows()

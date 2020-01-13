@@ -1,20 +1,24 @@
 {
-  "name": "djmarland/isin",
+  "name": "fynduck/isin",
   "description": "A PHP Library for storing a validating an ISIN (International Securities Identification Number / ISO 6166)",
-  "type": "library",
-  "keywords": ["isin", "iso 6166", "iso6166", "6166"],
-  "homepage": "https://github.com/djmarland/isin",
+  "type": "package",
+  "keywords": [
+    "isin",
+    "iso 6166",
+    "iso6166",
+    "6166"
+  ],
+  "homepage": "https://github.com/fynduck/isin",
   "license": "MIT",
   "authors": [
     {
-      "name": "David Marland",
-      "email": "davidm@rland.me.uk",
-      "homepage": "http://rland.me.uk"
+      "name": "fynduck",
+      "email": "stason.k12@gmail.com"
     }
   ],
   "support": {
-    "issues": "https://github.com/djmarland/isin/issues",
-    "source": "https://github.com/djmarland/isin"
+    "issues": "https://github.com/fynduck/isin/issues",
+    "source": "https://github.com/fynduck/isin"
   },
   "require": {
     "php": ">=5.4"
@@ -26,9 +30,20 @@
   "suggest": {
   },
   "autoload": {
-    "psr-4": {"Djmarland\\ISIN\\": "src/ISIN/"}
+    "psr-4": {
+      "Fynduck\\ISIN\\": "./src"
+    }
   },
   "autoload-dev": {
-    "psr-4": {"Djmarland\\ISIN\\Test\\": "tests/src/ISIN/"}
-  }
+    "psr-4": {
+      "Fynduck\\ISIN\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Fynduck\\ISIN\\IsinServiceProvider"
+      ]
+    }
+  },
 }

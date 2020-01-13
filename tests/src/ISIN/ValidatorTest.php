@@ -1,7 +1,7 @@
 <?php
-namespace Djmarland\ISIN\Test;
+namespace Fynduck\ISIN\Test;
 
-use Djmarland\ISIN\Validator;
+use Fynduck\ISIN\Validator;
 use PHPUnit_Framework_TestCase;
 
 class ValidatorTest extends PHPUnit_Framework_TestCase
@@ -48,7 +48,7 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input was not a string
      * @dataProvider nonStringProvider
      */
@@ -68,7 +68,7 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input was not the correct length. Must be 12 characters
      * @dataProvider wrongLengthProvider
      */
@@ -87,7 +87,7 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input contained invalid characters. Must be A-Z and 0-9 with AAXXXXXXXXX#
      * @dataProvider invalidCharacterProvider
      */
@@ -109,7 +109,7 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Djmarland\ISIN\Exception\InvalidISINException
+     * @expectedException \Fynduck\ISIN\Exception\InvalidISINException
      * @expectedExceptionMessage ISIN Input failed checksum validation
      * @dataProvider invalidChecksumProvider
      */

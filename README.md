@@ -5,19 +5,19 @@ ISINs will be checked against the checksum as detailed at [https://en.wikipedia.
 ## Installation
 The library can be installed via composer
 ```
-composer require djmarland/isin
+composer require fynduck/isin
 ```
 
 ## Usage
 You can instantiate an ISIN object by passing in a string
 ```php
-use Djmarland\ISIN;
+use fynduck\ISIN;
 
 $number = 'GB00B3W23161';
 $isin = new ISIN($number);
 ```
 
-If the value passed in was not a valid ISIN it will throw a ```Djmarland\ISIN\Exception\InvalidISINException```
+If the value passed in was not a valid ISIN it will throw a ```fynduck\ISIN\Exception\InvalidISINException```
 To get the value back out you can do
 
 ```php
@@ -39,25 +39,33 @@ echo 'The ISIN is ' . $isin;
 // The ISIN is GB00B3W23161
 ```
 
+### Generate ISINs
+```
+ISIN::generateDigit('GB00B3W2316');
+return: 1
+```
+
 ### Validating ISINs
 There are some helper static functions for simple validation.
 
-```php
-$valid = ISIN::isValid('GB00B3W23161');
-// true
+```
+ISIN::isValid('GB00B3W23161');
+return true
 ```
 
 This will return true if the value was a valid ISIN, false otherwise.
 
-```php
-$number = ISIN::validate('gb00b3w23161');
-// GB00B3W23161
+```
+ISIN::validate('gb00b3w23161');
+return GB00B3W23161
+```
+```
 $number = ISIN::validate('ABC');
-// InvalidISINException
+return InvalidISINException
 ```
 
 This will return the properly formatted ISIN (whitespace trimmed and converted to uppercase).
-It will throw a ```Djmarland\ISIN\Exception\InvalidISINException``` if the input was not valid.
+It will throw a ```fynduck\ISIN\Exception\InvalidISINException``` if the input was not valid.
 
 ## Development
 This project is open source. Feedback and pull requests are welcome. To develop the code:

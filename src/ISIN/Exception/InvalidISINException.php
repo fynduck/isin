@@ -1,5 +1,5 @@
 <?php
-namespace Djmarland\ISIN\Exception;
+namespace Fynduck\ISIN\Exception;
 
 use Exception;
 

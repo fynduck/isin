@@ -1,7 +1,8 @@
 <?php
-namespace Djmarland\ISIN;
 
-use Djmarland\ISIN\Exception\InvalidISINException;
+namespace Fynduck\ISIN;
+
+use Fynduck\ISIN\Exception\InvalidISINException;
 
 class ISIN
 {
@@ -16,11 +17,10 @@ class ISIN
     /**
      * ISIN constructor.
      * @param string $input
-     * @throws InvalidISINException
      */
     public function __construct($input)
     {
-        $this->isin = self::validate($input);
+        $this->isin = $input;
     }
 
     /**
@@ -37,8 +37,7 @@ class ISIN
      */
     public function getCheckDigit()
     {
-        $last = substr($this->isin, -1);
-        return (int) $last;
+        return (int)substr($this->isin, -1);
     }
 
     /**
@@ -61,6 +60,7 @@ class ISIN
         } catch (InvalidISINException $e) {
             return false;
         }
+
         return true;
     }
 
@@ -72,6 +72,22 @@ class ISIN
     public static function validate($input)
     {
         $validator = new Validator();
+
         return $validator->validate($input);
+    }
+
+    /**
+     * @param $input
+     * @return null|int
+     */
+    public static function generateDigit($input)
+    {
+        $validator = new Validator();
+
+        try {
+            return $validator->generateDigit($input);
+        } catch (InvalidISINException $e) {
+            return null;
+        }
     }
 }

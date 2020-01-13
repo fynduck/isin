@@ -1,7 +1,8 @@
 <?php
-namespace Djmarland\ISIN;
 
-use Djmarland\ISIN\Exception\InvalidISINException;
+namespace Fynduck\ISIN;
+
+use Fynduck\ISIN\Exception\InvalidISINException;
 
 class Validator
 {
@@ -38,13 +39,29 @@ class Validator
             );
         }
 
-
         return $input;
     }
 
-    private function isCorrectLength($input)
+    public function generateDigit($input)
     {
-        return strlen($input) == ISIN::VALIDATION_LENGTH;
+        if (!$this->isCorrectLength($input, 1)) {
+            throw new InvalidISINException(
+                'Input was not the correct length. Must be 11 characters'
+            );
+        }
+
+        if (!$this->isCorrectPattern($input)) {
+            throw new InvalidISINException(
+                'Input contained invalid characters. Must be A-Z and 0-9 with AAXXXXXXXXX#'
+            );
+        }
+
+        return $this->getCheckDigit($input);
+    }
+
+    private function isCorrectLength($input, $number = 0)
+    {
+        return strlen($input) == ISIN::VALIDATION_LENGTH - $number;
     }
 
     private function isCorrectPattern($input)
