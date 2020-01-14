@@ -3,7 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fynduck/isin.svg?style=flat-square)](https://packagist.org/packages/fynduck/isin)
 [![Total Downloads](https://img.shields.io/packagist/dt/fynduck/isin.svg?style=flat-square)](https://packagist.org/packages/fynduck/isin)
 
-A Laravel package for storing a validating an ISIN (International Securities Identification Number / ISO 6166).
+A Laravel package for generate and validating an ISIN (International Securities Identification Number / ISO 6166).
+
 ISINs will be checked against the checksum as detailed at [https://en.wikipedia.org/wiki/International_Securities_Identification_Number]
 
 ## Installation

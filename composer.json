@@ -1,6 +1,6 @@
 {
   "name": "fynduck/isin",
-  "description": "A Laravel package for storing a validating an ISIN (International Securities Identification Number / ISO 6166)",
+  "description": "A Laravel package for generate and validating an ISIN (International Securities Identification Number / ISO 6166)",
   "type": "package",
   "keywords": [
     "isin",
