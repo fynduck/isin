@@ -16,13 +16,13 @@ composer require fynduck/isin
 ## Usage
 You can instantiate an ISIN object by passing in a string
 ```php
-use fynduck\ISIN;
+use fynduck\Isin;
 
 $number = 'GB00B3W23161';
-$isin = new ISIN($number);
+$isin = new Isin($number);
 ```
 
-If the value passed in was not a valid ISIN it will throw a ```fynduck\ISIN\Exception\InvalidISINException```
+If the value passed in was not a valid ISIN it will throw a ```fynduck\Isin\Exception\InvalidISINException```
 To get the value back out you can do
 
 ```
@@ -39,7 +39,7 @@ return 1
 
 ### Generate ISINs
 ```
-ISIN::generateDigit('GB00B3W2316');
+Isin::generateDigit('GB00B3W2316');
 return: 1
 ```
 
@@ -47,23 +47,23 @@ return: 1
 There are some helper static functions for simple validation.
 
 ```
-ISIN::isValid('GB00B3W23161');
+Isin::isValid('GB00B3W23161');
 return true
 ```
 
 This will return true if the value was a valid ISIN, false otherwise.
 
 ```
-ISIN::validate('gb00b3w23161');
+Isin::validate('gb00b3w23161');
 return GB00B3W23161
 ```
 ```
-$number = ISIN::validate('ABC');
+$number = Isin::validate('ABC');
 return InvalidISINException
 ```
 
 This will return the properly formatted ISIN (whitespace trimmed and converted to uppercase).
-It will throw a ```fynduck\ISIN\Exception\InvalidISINException``` if the input was not valid.
+It will throw a ```fynduck\Isin\Exception\InvalidISINException``` if the input was not valid.
 
 ## Development
 This project is open source. Feedback and pull requests are welcome. To develop the code:
